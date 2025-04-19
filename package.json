@@ -1,0 +1,19 @@
+{
+  "name": "nexospark",
+  "version": "1.0.0",
+  "description": "Drone Manufacturing & R&D Company Website",
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "preview": "cd frontend && npm run preview",
+    "server": "cd backend && npm run dev"
+  },
+  "keywords": [
+    "drone",
+    "manufacturing",
+    "education",
+    "R&D"
+  ],
+  "author": "Nexospark",
+  "license": "ISC"
+}

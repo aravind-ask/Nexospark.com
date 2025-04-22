@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { motion } from "framer-motion";
 import {
   GraduationCap,
@@ -8,217 +7,220 @@ import {
   FileText,
   Users,
   Wrench,
-  Building2,
-  Globe,
-  Shield,
-  Zap,
+  ChevronRight,
+  Mail,
 } from "lucide-react";
-import { serviceService } from "../services/api";
-
-interface Service {
-  _id: string;
-  title: string;
-  description: string;
-  shortDescription: string;
-  category: string;
-  features: string[];
-  isActive: boolean;
-}
 
 const services = [
   {
-    title: "Workshops",
+    id: "workshops",
+    title: "Interactive Workshops",
     description:
-      "Interactive hands-on workshops designed to provide practical experience in drone technology.",
+      "Engage in hands-on workshops that demystify drone technology, guiding participants through assembly, programming, and real-world applications.",
     icon: GraduationCap,
-    features: [
-      "Hands-on drone assembly",
-      "Flight training sessions",
-      "Safety protocols",
-      "Maintenance workshops",
-      "Industry best practices",
+    keyFeatures: [
+      "Expert-led practical sessions",
+      "Drone-building and coding exercises",
+      "Industry-relevant case studies",
     ],
+    targetAudience: "Students, hobbyists, and professionals",
+    duration: "2-5 days",
   },
   {
-    title: "Internships",
+    id: "internships",
+    title: "Industry Internships",
     description:
-      "Real-world experience opportunities in drone technology and manufacturing.",
+      "Immerse yourself in the drone industry with structured internships, working on cutting-edge projects under expert mentorship.",
     icon: Briefcase,
-    features: [
-      "Industry mentorship",
-      "Project-based learning",
-      "Professional networking",
-      "Skill development",
-      "Career guidance",
+    keyFeatures: [
+      "Real-world project exposure",
+      "Mentorship from industry leaders",
+      "Career guidance and networking",
     ],
+    targetAudience: "Undergraduates and young professionals",
+    duration: "3-6 months",
   },
   {
-    title: "STEM Programs",
+    id: "stem-programs",
+    title: "STEM Education Programs",
     description:
-      "Comprehensive STEM education programs focused on drone technology.",
+      "Inspire the next generation with STEM programs that integrate drone technology, fostering creativity and technical skills.",
     icon: BookOpen,
-    features: [
-      "Science integration",
-      "Technology applications",
-      "Engineering principles",
-      "Mathematics concepts",
-      "Project-based learning",
+    keyFeatures: [
+      "Curriculum-aligned modules",
+      "Hands-on robotics activities",
+      "Focus on aeronautics and innovation",
     ],
+    targetAudience: "K-12 students and educators",
+    duration: "1-12 weeks",
   },
   {
+    id: "curriculum-development",
     title: "Curriculum Development",
     description:
-      "Custom educational curricula for institutions and organizations.",
+      "Partner with us to create tailored curricula that embed drone technology into academic programs, enhancing educational outcomes.",
     icon: FileText,
-    features: [
-      "Customized learning paths",
-      "Industry-aligned content",
-      "Assessment tools",
-      "Resource materials",
-      "Teacher training",
+    keyFeatures: [
+      "Customized for institutional needs",
+      "Integration of modern technology",
+      "Comprehensive teacher training",
     ],
+    targetAudience: "Schools, colleges, and training centers",
+    duration: "Varies by project",
   },
   {
-    title: "Training Programs",
+    id: "training-programs",
+    title: "Professional Training Programs",
     description:
-      "Professional training programs for drone pilots and technicians.",
+      "Master drone operation and maintenance through professional training programs designed for pilots and technicians.",
     icon: Users,
-    features: [
-      "Certification preparation",
-      "Advanced techniques",
-      "Safety protocols",
-      "Equipment handling",
-      "Field operations",
+    keyFeatures: [
+      "Certified instructors",
+      "Advanced simulation training",
+      "Regulatory and safety compliance",
     ],
+    targetAudience: "Drone operators and technicians",
+    duration: "1-4 weeks",
   },
   {
+    id: "custom-drone-solutions",
     title: "Custom Drone Solutions",
     description:
-      "Tailored drone solutions for specific industry needs and applications.",
+      "Leverage our expertise to develop bespoke drone solutions for industries like agriculture, surveillance, and logistics.",
     icon: Wrench,
-    features: [
-      "Custom development",
-      "Integration services",
-      "Performance optimization",
-      "Technical support",
-      "Maintenance services",
+    keyFeatures: [
+      "End-to-end design and prototyping",
+      "Industry-specific customization",
+      "Ongoing technical support",
     ],
+    targetAudience: "Businesses and government agencies",
+    duration: "Project-dependent",
   },
 ];
 
-const industries = [
-  {
-    title: "Education",
-    description: "Drone technology integration in educational institutions.",
-    icon: Building2,
-  },
-  {
-    title: "Agriculture",
-    description: "Drone solutions for farming and crop management.",
-    icon: Globe,
-  },
-  {
-    title: "Security",
-    description: "Advanced security and surveillance solutions.",
-    icon: Shield,
-  },
-  {
-    title: "Energy",
-    description: "Drone applications in energy sector operations.",
-    icon: Zap,
-  },
-];
-
-const Services = () => {
-  const [services, setServices] = useState<Service[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchServices();
-  }, []);
-
-  const fetchServices = async () => {
-    try {
-      const response = await serviceService.getAll();
-      setServices(response.data.data.services);
-    } catch (error) {
-      console.error("Error fetching services:", error);
-    } finally {
-      setLoading(false);
-    }
+const ServicesPage = () => {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        delay: i * 0.15,
+        ease: "easeOut",
+      },
+    }),
+    hover: {
+      y: -5,
+      boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
+      transition: { duration: 0.3 },
+    },
   };
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
-
   return (
-    <div className="container mx-auto px-4 py-8">
-      <motion.h1
+    <div className="container mx-auto px-4 py-16 min-h-screen">
+      {/* Header */}
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-4xl font-bold text-gray-900 mb-8"
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16"
       >
-        Our Services
-      </motion.h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          The Services we provide
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          Explore our expertly crafted services in education, training, and
+          drone technology, designed to drive innovation and empower our
+          partners.
+        </p>
+      </motion.div>
+
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, index) => (
           <motion.div
-            key={service._id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
+            key={service.id}
+            custom={index}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            whileHover="hover"
+            viewport={{ once: true }}
+            className="bg-white rounded-lg shadow-md p-6 flex flex-col h-full"
           >
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 mb-4">{service.shortDescription}</p>
-              <div className="mb-4">
-                <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                  {service.category}
-                </span>
+            {/* Icon and Title */}
+            <div className="flex items-center mb-4">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                <service.icon className="w-6 h-6 text-primary" />
               </div>
-              <ul className="space-y-2 mb-4">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center text-gray-600">
-                    <svg
-                      className="w-4 h-4 text-primary mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    {feature}
-                  </li>
+              <h2 className="text-xl font-semibold text-gray-900">
+                {service.title}
+              </h2>
+            </div>
+            {/* Description */}
+            <p className="text-gray-600 mb-4 flex-grow">
+              {service.description}
+            </p>
+            {/* Key Features */}
+            <div className="mb-4">
+              <h3 className="text-base font-medium text-gray-900 mb-2">
+                Key Features
+              </h3>
+              <ul className="list-disc list-inside text-gray-600 space-y-1">
+                {service.keyFeatures.map((feature) => (
+                  <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <Link to={`/services/${service.slug}`}>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                >
-                  Learn More
-                </motion.button>
-              </Link>
             </div>
+            {/* Additional Details */}
+            <div className="mb-4">
+              <p className="text-gray-600 text-sm">
+                <span className="font-medium">Target Audience: </span>
+                {service.targetAudience}
+              </p>
+              <p className="text-gray-600 text-sm">
+                <span className="font-medium">Duration: </span>
+                {service.duration}
+              </p>
+            </div>
+            {/* Learn More */}
+            <a
+              href={`/services/${service.id}`}
+              className="mt-auto inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors text-sm"
+            >
+              Learn More
+              <ChevronRight className="w-4 h-4 ml-1" />
+            </a>
           </motion.div>
         ))}
       </div>
+
+      {/* Call-to-Action */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center mt-16"
+      >
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          Partner with Us
+        </h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+          Contact NexoSpark Pvt Ltd to discover how our services can elevate
+          your educational or technological initiatives.
+        </p>
+        <a
+          href="/contact"
+          className="inline-flex items-center bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+        >
+          Get in Touch
+          <Mail className="w-4 h-4 ml-2" />
+        </a>
+      </motion.div>
     </div>
   );
 };
 
-export default Services;
+export default ServicesPage;

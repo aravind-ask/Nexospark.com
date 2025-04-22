@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { courseService } from "../services/api";
@@ -68,7 +68,6 @@ const Courses = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Header */}
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Courses</h1>
         <p className="text-lg text-gray-600">
@@ -76,7 +75,6 @@ const Courses = () => {
         </p>
       </div>
 
-      {/* Search and Filter */}
       <div className="mb-8 flex flex-col md:flex-row gap-4">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -104,7 +102,6 @@ const Courses = () => {
         </div>
       </div>
 
-      {/* Courses Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredCourses.map((course, index) => (
           <motion.div
@@ -174,7 +171,6 @@ const Courses = () => {
         ))}
       </div>
 
-      {/* No Results */}
       {filteredCourses.length === 0 && (
         <div className="text-center py-12">
           <p className="text-gray-600">

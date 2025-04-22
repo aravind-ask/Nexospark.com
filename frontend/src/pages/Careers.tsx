@@ -105,7 +105,7 @@ const benefits = [
 
 const Careers = () => {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent py-20">
         <div className="container mx-auto px-4">
@@ -168,7 +168,7 @@ const Careers = () => {
       </section>
 
       {/* Open Positions */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -224,7 +224,7 @@ const Careers = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Benefits Section */}
       <section className="py-20">
@@ -284,13 +284,13 @@ const Careers = () => {
               Join our team and help shape the future of drone technology and
               education.
             </p>
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-secondary px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
             >
               View All Positions
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </div>
       </section>

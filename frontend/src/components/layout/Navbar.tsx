@@ -1,30 +1,33 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, MapPin } from "lucide-react";
+
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "Products", href: "/products" },
+  // { name: "Courses", href: "/courses" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  // { name: "Blog", href: "/blog" },
+  { name: "Careers", href: "/careers" },
+  { name: "Contact", href: "/contact" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "Services", href: "/services" },
-    { name: "Courses", href: "/courses" },
-    { name: "Blog", href: "/blog" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-    { name: "Careers", href: "/careers" },
-  ];
-
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-white shadow-lg fixed w-full z-50">
+      {/* Main Navigation */}
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-primary">NexoSpark</span>
-          </Link>
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center">
+              <span className="text-2xl font-bold text-primary">Nexospark</span>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -41,19 +44,13 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="/admin"
-              className="text-sm font-medium text-gray-600 hover:text-primary"
-            >
-              Admin
-            </Link>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-primary"
+              className="text-gray-600 hover:text-primary focus:outline-none"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />
@@ -71,30 +68,25 @@ const Navbar = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden"
+          className="md:hidden bg-white border-t"
         >
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
-                  location.pathname === item.href
-                    ? "bg-primary/10 text-primary"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-primary"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Link
-              to="/admin"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-primary"
-              onClick={() => setIsOpen(false)}
-            >
-              Admin
-            </Link>
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex flex-col space-y-4">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`text-sm font-medium transition-colors ${
+                    location.pathname === item.href
+                      ? "text-primary"
+                      : "text-gray-600 hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </motion.div>
       )}

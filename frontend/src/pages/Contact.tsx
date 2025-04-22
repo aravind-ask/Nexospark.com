@@ -30,7 +30,7 @@ const contactInfo = [
 
 const Contact = () => {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent py-20">
         <div className="container mx-auto px-4">

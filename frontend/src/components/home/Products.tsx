@@ -5,25 +5,25 @@ const products = [
     title: "Zeus Nex Zeus",
     description:
       "Advanced power system for drones with intelligent power management and extended flight time.",
-    image: "/images/products/zeus.jpg",
+    image: "/products/zeus.jpeg",
   },
   {
     title: "Venom 30a Nex Venom",
     description:
       "High-performance 4-in-1 ESC with advanced features and reliable power delivery.",
-    image: "/images/products/venom.jpg",
+    image: "/products/venom.jpeg",
   },
   {
     title: "Nex Goblin",
     description:
       "Premium electric motors and propellers designed for optimal performance and efficiency.",
-    image: "/images/products/goblin.jpg",
+    image: "/products/nex-goblin.jpeg",
   },
   {
     title: "Nex Hornet",
     description:
       "Micro-class FPV platform offering exceptional agility and immersive flying experience.",
-    image: "/images/products/hornet.jpg",
+    image: "/products/nex-hornet.jpeg",
   },
 ];
 

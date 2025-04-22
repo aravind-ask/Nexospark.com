@@ -1,23 +1,18 @@
-// pages/Home.jsx
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import DroneModel from "@/components/3d/DroneModel"; // Ensure this path is correct
+import DroneModel from "../components/3d/DroneModel";
 import Products from "@/components/home/Products";
 import Services from "@/components/home/Services";
 
 const Home = () => {
   return (
     <div className="min-h-screen">
-      {/* Banner Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent" />
 
-        {/* Content */}
         <div className="container mx-auto px-4 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Text Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -46,7 +41,6 @@ const Home = () => {
               </motion.div>
             </motion.div>
 
-            {/* 3D Drone Model */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -62,7 +56,6 @@ const Home = () => {
                   shadow-mapSize-width={1024}
                   shadow-mapSize-height={1024}
                 />
-                <DroneModel /> {/* Already wrapped with Suspense */}
                 <OrbitControls
                   enableZoom={false}
                   enablePan={false}
@@ -75,7 +68,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Who We Are Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
@@ -98,7 +90,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Vision Section */}
       <section className="py-20 bg-secondary text-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -121,10 +112,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Products Section */}
       <Products />
 
-      {/* Services Section */}
       <Services />
     </div>
   );

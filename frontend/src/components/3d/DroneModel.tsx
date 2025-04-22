@@ -1,11 +1,10 @@
-// components/3d/DroneModel.tsx
 import { useRef, Suspense } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 
 const DroneModel = () => {
   const droneRef = useRef(null);
-  const { scene } = useGLTF("/models/FlyingDrone_.glb"); // Adjust path as needed
+  const { scene } = useGLTF("/models/FlyingDrone_.glb");
 
   useFrame((state) => {
     if (droneRef.current) {

@@ -13,7 +13,6 @@ const Home = () => {
 
         <div className="container mx-auto px-4 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Drone Area */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -39,7 +38,6 @@ const Home = () => {
               </Canvas>
             </motion.div>
 
-            {/* Banner Description Area */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

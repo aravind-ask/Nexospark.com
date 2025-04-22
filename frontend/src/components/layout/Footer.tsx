@@ -36,7 +36,7 @@ const Footer = () => {
                   Services
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to="/courses"
                   className="text-gray-400 hover:text-primary"
@@ -48,7 +48,7 @@ const Footer = () => {
                 <Link to="/blog" className="text-gray-400 hover:text-primary">
                   Blog
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -86,25 +86,35 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
+                title="facebook"
                 className="text-gray-400 hover:text-primary transition-colors"
+                target="_blank"
               >
                 <Facebook className="w-6 h-6" />
               </a>
               <a
                 href="#"
+                title="twitter"
                 className="text-gray-400 hover:text-primary transition-colors"
+                target="_blank"
               >
                 <Twitter className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/nexo.spark?igsh=N2o1cTRlbHJmY3J4"
+                title="instagram"
+                rel="noopener"
                 className="text-gray-400 hover:text-primary transition-colors"
+                target="_blank"
               >
                 <Instagram className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/nexospark/"
+                title="linkedin"
+                rel="noopener"
                 className="text-gray-400 hover:text-primary transition-colors"
+                target="_blank"
               >
                 <Linkedin className="w-6 h-6" />
               </a>

@@ -31,7 +31,7 @@ const contactInfo = [
 
 const Contact = () => {
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-  const position = { lat: 9.6667, lng: 76.5833 }; // Kurichithanam P.O., Kottayam
+  const position = { lat: 9.6667, lng: 76.5833 };
 
   return (
     <div className="min-h-screen">
@@ -78,6 +78,7 @@ const Contact = () => {
                   <a
                     href={info.link}
                     className="text-gray-600 hover:text-primary transition-colors"
+                    target="_blank"
                   >
                     {info.content}
                   </a>
@@ -184,6 +185,9 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+            Send us a Message
+          </h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

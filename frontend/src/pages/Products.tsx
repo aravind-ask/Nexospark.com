@@ -123,45 +123,45 @@ const ProductsPage = () => {
             transition={{ delay: index * 0.1 }}
             className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row hover:shadow-xl transition-shadow"
           >
-            <Link
+            {/* <Link
               to={`/products/${product.slug}`}
               className="flex flex-col md:flex-row w-full"
-            >
-              {/* Image */}
-              <div className="md:w-1/3 h-64 md:h-auto">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Details */}
-              <div className="md:w-2/3 p-6 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center mb-3">
-                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                      {product.category}
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-                    {product.name}
-                  </h2>
-                  <p className="text-gray-600 mb-4">{product.description}</p>
+            > */}
+            {/* Image */}
+            <div className="md:w-1/3 h-64 md:h-auto">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Details */}
+            <div className="md:w-2/3 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center mb-3">
+                  <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
+                    {product.category}
+                  </span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <span className="text-yellow-400">★</span>
-                    <span className="ml-1 text-gray-600">
-                      {product.rating} / 5
-                    </span>
-                  </div>
-                  {/* <span className="text-sm text-gray-500 hover:text-primary transition-colors">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+                  {product.name}
+                </h2>
+                <p className="text-gray-600 mb-4">{product.description}</p>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <span className="text-yellow-400">★</span>
+                  <span className="ml-1 text-gray-600">
+                    {product.rating} / 5
+                  </span>
+                </div>
+                {/* <span className="text-sm text-gray-500 hover:text-primary transition-colors">
                     View Details
                     <span className="inline-block w-4 h-4 ml-1">➔</span>
                   </span> */}
-                </div>
               </div>
-            </Link>
+            </div>
+            {/* </Link> */}
           </motion.div>
         ))}
       </div>

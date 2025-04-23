@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Mail,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -211,13 +212,13 @@ const ServicesPage = () => {
           Contact NexoSpark Pvt Ltd to discover how our services can elevate
           your educational or technological initiatives.
         </p>
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="inline-flex items-center bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
         >
           Get in Touch
           <Mail className="w-4 h-4 ml-2" />
-        </a>
+        </Link>
       </motion.div>
     </div>
   );

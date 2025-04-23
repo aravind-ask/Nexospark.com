@@ -9,8 +9,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-primary mb-4">NexoSpark</h3>
-            <p className="text-gray-400">
+            <div className="flex items-center justify-start gap-2">
+              <img
+                src="/nexospark-purple-logo.png"
+                alt="Nexospark Logo"
+                className="h-20 w-auto"
+              />
+              <div>
+                <h3 className="text-2xl font-bold text-primary">Nexospark</h3>
+                <h4>Passion Unleashed, Potential Realised!</h4>
+              </div>
+            </div>
+            <p className="text-gray-400 mt-5 ml-1">
               Empowering the future through innovative technology solutions and
               education.
             </p>
@@ -84,7 +94,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect With Us</h4>
             <div className="flex space-x-4">
-              <a
+              {/* <a
                 href="#"
                 title="facebook"
                 className="text-gray-400 hover:text-primary transition-colors"
@@ -99,7 +109,7 @@ const Footer = () => {
                 target="_blank"
               >
                 <Twitter className="w-6 h-6" />
-              </a>
+              </a> */}
               <a
                 href="https://www.instagram.com/nexo.spark?igsh=N2o1cTRlbHJmY3J4"
                 title="instagram"

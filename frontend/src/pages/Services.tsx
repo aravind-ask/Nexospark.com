@@ -185,13 +185,13 @@ const ServicesPage = () => {
               </p>
             </div>
             {/* Learn More */}
-            <a
+            {/* <a
               href={`/services/${service.id}`}
               className="mt-auto inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors text-sm"
             >
               Learn More
               <ChevronRight className="w-4 h-4 ml-1" />
-            </a>
+            </a> */}
           </motion.div>
         ))}
       </div>

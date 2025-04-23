@@ -11,12 +11,13 @@ import {
   Medal,
   Certificate,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const stats = [
-  { label: "Years of Experience", value: "10+" },
-  { label: "Students Trained", value: "1000+" },
-  { label: "Projects Completed", value: "500+" },
-  { label: "Industry Partners", value: "50+" },
+  { label: "Years of Experience", value: "2+" },
+  { label: "Students Trained", value: "100+" },
+  { label: "Projects Completed", value: "50+" },
+  { label: "Industry Partners", value: "10+" },
 ];
 
 const achievements = [
@@ -44,28 +45,29 @@ const achievements = [
 
 const team = [
   {
-    name: "Dr. Sarah Chen",
+    name: "Kripamol Thomas Perathu",
     role: "Founder & CEO",
     bio: "PhD in Aerospace Engineering with 15+ years of experience in drone technology.",
   },
   {
-    name: "Michael Rodriguez",
-    role: "Head of R&D",
+    name: "Aswin P Nair",
+    role: "Fopunder & CTO",
     bio: "Expert in drone systems and autonomous technology development.",
   },
   {
-    name: "Dr. Emily Watson",
-    role: "Education Director",
+    name: "Akhil S",
+    role: "Founder & COO",
     bio: "Specialist in STEM education and curriculum development.",
   },
-  {
-    name: "James Wilson",
-    role: "Technical Lead",
-    bio: "Master's in Robotics with expertise in drone programming.",
-  },
+  // {
+  //   name: "James Wilson",
+  //   role: "Technical Lead",
+  //   bio: "Master's in Robotics with expertise in drone programming.",
+  // },
 ];
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -88,6 +90,22 @@ const About = () => {
         </div>
       </section>
 
+      {/* <section className="py-5">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="text-4xl font-bold text-primary mb-2">
+              Passion Unleashed, Potential Realised!
+            </div>
+          </motion.div>
+        </div>
+      </section> */}
+
       {/* Story Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -102,7 +120,7 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-gray-600 mb-4">
-                Founded in 2014, Nexospark emerged from a vision to
+                Founded in 2024, Nexospark emerged from a vision to
                 revolutionize drone technology and make it accessible to
                 everyone. What started as a small research project has grown
                 into a global leader in drone education and innovation.
@@ -193,7 +211,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -282,6 +300,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-secondary px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+              onClick={() => navigate("/careers")}
             >
               Get Involved
             </motion.button>

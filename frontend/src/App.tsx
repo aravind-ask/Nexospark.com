@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 // import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Careers from "./pages/Careers";
+import ScrollToTop from "./components/layout/ScrollToTop";
 // import AdminLayout from "./layouts/AdminLayout";
 // import Dashboard from "./pages/admin/Dashboard";
 // import AdminProducts from "./pages/admin/Products";
@@ -26,6 +27,7 @@ import Careers from "./pages/Careers";
 const App = () => {
   return (
     <Router>
+      <ScrollToTop/>
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow pt-16">

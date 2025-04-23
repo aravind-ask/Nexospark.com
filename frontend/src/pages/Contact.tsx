@@ -1,24 +1,25 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from "lucide-react";
+import { APIProvider, Map, AdvancedMarker } from "@vis.gl/react-google-maps";
 
 const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "info@nexospark.com",
-    link: "mailto:info@nexospark.com",
+    content: "info@nexospark.in",
+    link: "mailto:info@nexospark.in",
   },
   {
     icon: Phone,
     title: "Phone",
-    content: "+1 (555) 123-4567",
-    link: "tel:+15551234567",
+    content: "+91 95449 55635",
+    link: "tel:+91 95449 55635",
   },
   {
     icon: MapPin,
     title: "Address",
-    content: "123 Innovation Drive, Tech City, TC 12345",
-    link: "https://maps.google.com",
+    content: "Kurichithanam P O, Kottayam, Kerala, India - 686634",
+    link: "https://maps.app.goo.gl/GbKi19ScpWyoYfDu5",
   },
   {
     icon: Clock,
@@ -29,6 +30,9 @@ const contactInfo = [
 ];
 
 const Contact = () => {
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  const position = { lat: 9.6667, lng: 76.5833 }; // Kurichithanam P.O., Kottayam
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -187,10 +191,16 @@ const Contact = () => {
             viewport={{ once: true }}
             className="aspect-video bg-gray-200 rounded-lg overflow-hidden"
           >
-            {/* Placeholder for map integration */}
-            <div className="w-full h-full flex items-center justify-center">
-              <MapPin className="w-16 h-16 text-primary" />
-            </div>
+            <APIProvider apiKey={apiKey}>
+              <Map
+                style={{ width: "100%", height: "100%" }}
+                defaultCenter={position}
+                defaultZoom={15}
+                mapId="nexospark-map"
+              >
+                <AdvancedMarker position={position} />
+              </Map>
+            </APIProvider>
           </motion.div>
         </div>
       </section>

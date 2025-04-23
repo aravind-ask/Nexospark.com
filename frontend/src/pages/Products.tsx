@@ -155,10 +155,10 @@ const ProductsPage = () => {
                       {product.rating} / 5
                     </span>
                   </div>
-                  <span className="text-sm text-gray-500 hover:text-primary transition-colors">
+                  {/* <span className="text-sm text-gray-500 hover:text-primary transition-colors">
                     View Details
                     <span className="inline-block w-4 h-4 ml-1">➔</span>
-                  </span>
+                  </span> */}
                 </div>
               </div>
             </Link>

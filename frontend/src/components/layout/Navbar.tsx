@@ -24,7 +24,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center gap-2">
+              <img
+                src="/nexospark-purple-logo.png"
+                alt="Nexospark Logo"
+                className="h-8 w-auto"
+              />
               <span className="text-2xl font-bold text-primary">Nexospark</span>
             </Link>
           </div>

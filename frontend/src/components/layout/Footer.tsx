@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center justify-between">
           {/* Company Info */}
           <div>
             <div className="flex items-center justify-start gap-2">
@@ -16,8 +16,12 @@ const Footer = () => {
                 className="h-20 w-auto"
               />
               <div>
-                <h3 className="text-2xl font-bold text-primary">Nexospark</h3>
-                <h4>Passion Unleashed, Potential Realised!</h4>
+                <h1 className="text-3xl font-bold text-primary">Nexospark</h1>
+                <p className="text-sm text-gray-200">
+                  Passion Unleashed,
+                  <br />
+                  Potential Realised!
+                </p>
               </div>
             </div>
             <p className="text-gray-400 mt-5 ml-1">

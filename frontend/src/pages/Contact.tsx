@@ -92,7 +92,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <motion.div
@@ -180,13 +180,13 @@ const Contact = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Map Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-            Send us a Message
+            Our Location
           </h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -51,7 +51,7 @@ const team = [
   },
   {
     name: "Aswin P Nair",
-    role: "Fopunder & CTO",
+    role: "Founder & CTO",
     bio: "Expert in drone systems and autonomous technology development.",
   },
   {

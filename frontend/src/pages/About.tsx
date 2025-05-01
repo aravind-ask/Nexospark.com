@@ -47,7 +47,7 @@ const team = [
   {
     name: "Kripamol Thomas Perathu",
     role: "Founder & CEO",
-    bio: "PhD in Aerospace Engineering with 15+ years of experience in drone technology.",
+    bio: "Nanotechnology Engineer with IIT Madras technical experience in Aerospace engineering and business management",
   },
   {
     name: "Aswin P Nair",

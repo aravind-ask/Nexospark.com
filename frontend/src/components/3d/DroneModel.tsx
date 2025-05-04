@@ -37,16 +37,55 @@ const LoadingSpinner = () => {
   useFrame((state) => {
     if (logoRef.current) {
       const time = state.clock.getElapsedTime();
-      logoRef.current.rotation.z += 0.03; // Gentle rotation
-      logoRef.current.scale.setScalar(1 + 0.1 * Math.sin(time * 2)); // Subtle scale pulse
+      // Gentle floating effect
+      logoRef.current.position.y = Math.sin(time * 1) * 0.1;
+      // Pulsing scale effect
+      logoRef.current.scale.setScalar(1 + 0.05 * Math.sin(time * 1.5));
+      // Update shader time uniform for glow animation
+      logoRef.current.material.uniforms.uTime.value = time;
     }
   });
+
+  // Custom shader for glowing effect
+  const vertexShader = `
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `;
+
+  const fragmentShader = `
+    uniform float uTime;
+    uniform sampler2D uTexture;
+    varying vec2 vUv;
+
+    void main() {
+      vec4 texColor = texture2D(uTexture, vUv);
+      // Calculate distance from center for glow
+      vec2 center = vec2(0.5, 0.5);
+      float dist = distance(vUv, center);
+      // Dynamic glow effect
+      float glow = 0.1 + 0.05 * sin(uTime * 2.0);
+      float glowStrength = smoothstep(0.4, 0.6, dist) * glow;
+      vec3 glowColor = vec3(0.3, 0.2, 0.8); // Purple glow to match logo
+      vec3 finalColor = texColor.rgb + glowColor * glowStrength * texColor.a;
+      gl_FragColor = vec4(finalColor, texColor.a);
+    }
+  `;
+
+  const uniforms = {
+    uTexture: { value: logoTexture },
+    uTime: { value: 0.0 },
+  };
 
   return (
     <mesh ref={logoRef} position={[0, 0, 0]}>
       <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial
-        map={logoTexture}
+      <shaderMaterial
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+        uniforms={uniforms}
         transparent
         side={THREE.DoubleSide}
       />

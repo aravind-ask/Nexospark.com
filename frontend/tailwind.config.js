@@ -16,6 +16,7 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: { sifonn: ["Sifonn"] },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -16,7 +16,7 @@ const Footer = () => {
                 className="h-20 w-auto"
               />
               <div>
-                <h1 className="text-3xl font-bold text-primary">Nexospark</h1>
+                <h1 className="text-3xl font-bold text-primary font-sifonn">NEXOSPARK</h1>
                 <p className="text-sm text-gray-200">
                   Passion Unleashed,
                   <br />
@@ -139,7 +139,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>
-            &copy; {new Date().getFullYear()} NexoSpark. All rights reserved.
+            &copy; {new Date().getFullYear()} Nexospark Pvt Ltd. All rights reserved.
           </p>
         </div>
       </div>

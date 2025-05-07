@@ -30,7 +30,7 @@ const Navbar = () => {
                 alt="Nexospark Logo"
                 className="h-8 w-auto"
               />
-              <span className="text-2xl font-bold text-primary">Nexospark</span>
+              <span className="text-2xl font-bold text-primary font-sifonn">NEXOSPARK</span>
             </Link>
           </div>
 

@@ -49,6 +49,11 @@
   }
 }
 
+@font-face {
+  font-family: "Sifonn";
+  src: url("./fonts/SIFONN_PRO.woff") format("woff");
+}
+
 @layer base {
   * {
     @apply border-border;
